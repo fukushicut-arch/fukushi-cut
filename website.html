@@ -1,0 +1,1023 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>福祉.cut｜福祉理美容専門</title>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600&family=Noto+Sans+JP:wght@200;300;400&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --ink: #1a1614;
+  --warm: #f7f2ec;
+  --gold: #9a7d5a;
+  --gold2: #c4a882;
+  --mid: #6b5d52;
+  --pale: #ede7df;
+  --line: rgba(154,125,90,0.25);
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--warm);
+  color: var(--ink);
+  font-family: 'Noto Sans JP', sans-serif;
+  font-weight: 300;
+  overflow-x: hidden;
+}
+
+/* ─── HERO ─── */
+.hero {
+  min-height: 100svh;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 60% 80% at 80% 50%, rgba(154,125,90,0.12) 0%, transparent 70%),
+    radial-gradient(ellipse 40% 60% at 10% 80%, rgba(154,125,90,0.08) 0%, transparent 60%);
+}
+
+.hero-lines {
+  position: absolute;
+  inset: 0;
+  background-image:
+    repeating-linear-gradient(90deg, var(--line) 0, var(--line) 1px, transparent 0, transparent 80px);
+  opacity: 0.3;
+}
+
+/* Nav */
+nav {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.75rem 2rem;
+  border-bottom: 1px solid var(--line);
+  background: var(--warm);
+}
+
+.logo {
+  font-family: 'Shippori Mincho', serif;
+  font-size: 1rem;
+  letter-spacing: 0.2em;
+  color: var(--ink);
+}
+
+.logo span {
+  color: var(--gold);
+  font-size: 0.7rem;
+  display: block;
+  letter-spacing: 0.3em;
+  margin-top: 0.1rem;
+}
+
+.nav-links {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+}
+
+.nav-links a {
+  font-size: 0.72rem;
+  letter-spacing: 0.15em;
+  color: var(--mid);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.nav-links a:hover { color: var(--gold); }
+
+.nav-btn {
+  background: var(--ink);
+  color: var(--warm) !important;
+  padding: 0.6rem 1.25rem;
+  font-size: 0.72rem !important;
+  letter-spacing: 0.15em;
+  transition: background 0.2s !important;
+}
+
+.nav-btn:hover { background: var(--gold) !important; color: white !important; }
+
+/* Hero content */
+.hero-content {
+  position: relative;
+  z-index: 5;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 3rem 2rem 2rem;
+  max-width: 680px;
+}
+
+.hero-label {
+  font-size: 0.68rem;
+  letter-spacing: 0.4em;
+  color: var(--gold);
+  margin-bottom: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.hero-label::before {
+  content: '';
+  width: 30px;
+  height: 1px;
+  background: var(--gold);
+}
+
+h1 {
+  font-family: 'Shippori Mincho', serif;
+  font-size: clamp(2.2rem, 6vw, 3.8rem);
+  font-weight: 500;
+  line-height: 1.5;
+  letter-spacing: 0.1em;
+  color: var(--ink);
+  margin-bottom: 2rem;
+}
+
+h1 em {
+  font-style: normal;
+  color: var(--gold);
+}
+
+.hero-desc {
+  font-size: 0.85rem;
+  line-height: 2.2;
+  color: var(--mid);
+  letter-spacing: 0.08em;
+  max-width: 440px;
+  margin-bottom: 2.5rem;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.btn-primary {
+  display: inline-block;
+  background: var(--ink);
+  color: var(--warm);
+  padding: 1rem 2.5rem;
+  font-family: 'Shippori Mincho', serif;
+  font-size: 0.85rem;
+  letter-spacing: 0.2em;
+  text-decoration: none;
+  transition: all 0.25s;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-primary::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--gold);
+  transform: translateX(-100%);
+  transition: transform 0.3s ease;
+  z-index: -1;
+}
+
+.btn-primary:hover { color: white; }
+.btn-primary:hover::after { transform: translateX(0); }
+
+.btn-secondary {
+  display: inline-block;
+  border: 1px solid var(--gold);
+  color: var(--gold);
+  padding: 1rem 2rem;
+  font-size: 0.8rem;
+  letter-spacing: 0.15em;
+  text-decoration: none;
+  transition: all 0.2s;
+}
+
+.btn-secondary:hover {
+  background: var(--gold);
+  color: white;
+}
+
+/* Hero footer */
+.hero-footer {
+  position: relative;
+  z-index: 5;
+  padding: 1.5rem 2rem;
+  border-top: 1px solid var(--line);
+  display: flex;
+  gap: 2.5rem;
+  flex-wrap: wrap;
+}
+
+.hero-stat {
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  color: var(--mid);
+}
+
+.hero-stat strong {
+  display: block;
+  font-family: 'Shippori Mincho', serif;
+  font-size: 1.3rem;
+  font-weight: 400;
+  color: var(--ink);
+  letter-spacing: 0.05em;
+}
+
+/* ─── SECTIONS ─── */
+section { padding: 5rem 2rem; }
+
+.section-label {
+  font-size: 0.65rem;
+  letter-spacing: 0.4em;
+  color: var(--gold);
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+}
+
+.section-title {
+  font-family: 'Shippori Mincho', serif;
+  font-size: clamp(1.6rem, 4vw, 2.4rem);
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  line-height: 1.5;
+  color: var(--ink);
+  margin-bottom: 1.5rem;
+}
+
+/* ─── ABOUT ─── */
+.about {
+  background: var(--ink);
+  color: var(--warm);
+  position: relative;
+  overflow: hidden;
+}
+
+.about::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -10%;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(154,125,90,0.15) 0%, transparent 70%);
+}
+
+.about-inner {
+  max-width: 900px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+.about .section-title { color: var(--warm); }
+
+.about-text {
+  font-size: 0.85rem;
+  line-height: 2.4;
+  color: rgba(247,242,236,0.7);
+  letter-spacing: 0.05em;
+}
+
+.about-quote {
+  border-left: 2px solid var(--gold);
+  padding: 1.5rem 0 1.5rem 1.5rem;
+}
+
+.about-quote p {
+  font-family: 'Shippori Mincho', serif;
+  font-size: 1.1rem;
+  line-height: 2;
+  letter-spacing: 0.1em;
+  color: var(--warm);
+}
+
+.about-quote cite {
+  display: block;
+  margin-top: 1rem;
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  color: var(--gold2);
+  font-style: normal;
+}
+
+/* ─── SERVICES ─── */
+.services { max-width: 900px; margin: 0 auto; }
+
+.services-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 3rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.services-note {
+  font-size: 0.72rem;
+  color: var(--mid);
+  letter-spacing: 0.05em;
+  text-align: right;
+  line-height: 1.8;
+}
+
+.menu-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1px;
+  background: var(--line);
+  border: 1px solid var(--line);
+}
+
+.menu-item {
+  background: var(--warm);
+  padding: 1.75rem 1.5rem;
+  transition: background 0.2s;
+}
+
+.menu-item:hover { background: var(--pale); }
+
+.menu-item-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 0.5rem;
+}
+
+.menu-name {
+  font-family: 'Shippori Mincho', serif;
+  font-size: 1rem;
+  letter-spacing: 0.1em;
+  color: var(--ink);
+}
+
+.menu-price {
+  font-family: 'Shippori Mincho', serif;
+  font-size: 1rem;
+  color: var(--gold);
+  letter-spacing: 0.05em;
+  white-space: nowrap;
+}
+
+.menu-detail {
+  font-size: 0.72rem;
+  color: var(--mid);
+  letter-spacing: 0.05em;
+  line-height: 1.7;
+}
+
+.menu-note {
+  margin-top: 2rem;
+  font-size: 0.72rem;
+  color: var(--mid);
+  letter-spacing: 0.05em;
+  line-height: 1.9;
+  padding: 1rem 1.25rem;
+  border-left: 2px solid var(--gold);
+  background: var(--pale);
+}
+
+/* ─── FLOW ─── */
+.flow { background: var(--pale); }
+
+.flow-inner { max-width: 700px; margin: 0 auto; }
+
+.flow-steps {
+  margin-top: 3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.flow-step {
+  display: grid;
+  grid-template-columns: 60px 1fr;
+  gap: 1.5rem;
+  padding: 2rem 0;
+  border-bottom: 1px solid var(--line);
+  position: relative;
+}
+
+.flow-step:last-child { border-bottom: none; }
+
+.step-num {
+  font-family: 'Shippori Mincho', serif;
+  font-size: 2rem;
+  color: var(--gold);
+  opacity: 0.5;
+  line-height: 1;
+  padding-top: 0.25rem;
+}
+
+.step-title {
+  font-family: 'Shippori Mincho', serif;
+  font-size: 1rem;
+  letter-spacing: 0.1em;
+  color: var(--ink);
+  margin-bottom: 0.5rem;
+}
+
+.step-desc {
+  font-size: 0.8rem;
+  color: var(--mid);
+  line-height: 2;
+  letter-spacing: 0.05em;
+}
+
+/* ─── REASONS ─── */
+.reasons { max-width: 900px; margin: 0 auto; }
+
+.reasons-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 1.5rem;
+  margin-top: 3rem;
+}
+
+.reason-card {
+  padding: 2rem 1.5rem;
+  border: 1px solid var(--line);
+  background: var(--warm);
+  position: relative;
+  overflow: hidden;
+}
+
+.reason-card::before {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 2px;
+  background: var(--gold);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s;
+}
+
+.reason-card:hover::before { transform: scaleX(1); }
+
+.reason-num {
+  font-family: 'Shippori Mincho', serif;
+  font-size: 2.5rem;
+  color: var(--pale);
+  position: absolute;
+  top: 0.5rem;
+  right: 1rem;
+  line-height: 1;
+}
+
+.reason-title {
+  font-family: 'Shippori Mincho', serif;
+  font-size: 0.95rem;
+  letter-spacing: 0.1em;
+  color: var(--ink);
+  margin-bottom: 0.75rem;
+  position: relative;
+}
+
+.reason-desc {
+  font-size: 0.78rem;
+  color: var(--mid);
+  line-height: 2;
+  letter-spacing: 0.05em;
+  position: relative;
+}
+
+/* ─── CTA ─── */
+.cta {
+  background: var(--ink);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.cta::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 80% 60% at 50% 50%, rgba(154,125,90,0.15) 0%, transparent 70%);
+}
+
+.cta-inner {
+  position: relative;
+  z-index: 1;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.cta .section-label { color: var(--gold2); }
+
+.cta .section-title {
+  color: var(--warm);
+  margin-bottom: 1rem;
+}
+
+.cta-desc {
+  font-size: 0.82rem;
+  color: rgba(247,242,236,0.6);
+  line-height: 2.2;
+  letter-spacing: 0.08em;
+  margin-bottom: 3rem;
+}
+
+.cta-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 2.5rem;
+}
+
+.btn-gold {
+  display: inline-block;
+  background: var(--gold);
+  color: white;
+  padding: 1.1rem 3rem;
+  font-family: 'Shippori Mincho', serif;
+  font-size: 0.9rem;
+  letter-spacing: 0.2em;
+  text-decoration: none;
+  transition: background 0.2s;
+}
+
+.btn-gold:hover { background: var(--gold2); }
+
+.btn-outline-warm {
+  display: inline-block;
+  border: 1px solid rgba(247,242,236,0.3);
+  color: rgba(247,242,236,0.7);
+  padding: 1.1rem 2rem;
+  font-size: 0.8rem;
+  letter-spacing: 0.15em;
+  text-decoration: none;
+  transition: all 0.2s;
+}
+
+.btn-outline-warm:hover {
+  border-color: var(--warm);
+  color: var(--warm);
+}
+
+.cta-contacts {
+  display: flex;
+  justify-content: center;
+  gap: 2.5rem;
+  flex-wrap: wrap;
+}
+
+.cta-contact-item {
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  color: rgba(247,242,236,0.5);
+}
+
+.cta-contact-item a {
+  display: block;
+  font-family: 'Shippori Mincho', serif;
+  font-size: 0.95rem;
+  color: var(--warm);
+  text-decoration: none;
+  margin-top: 0.3rem;
+  letter-spacing: 0.05em;
+}
+
+/* ─── INFO ─── */
+.info { background: var(--pale); }
+
+.info-inner {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.info-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 2.5rem;
+}
+
+.info-table tr {
+  border-bottom: 1px solid var(--line);
+}
+
+.info-table td {
+  padding: 1.25rem 0;
+  font-size: 0.82rem;
+  letter-spacing: 0.08em;
+  line-height: 1.9;
+}
+
+.info-table td:first-child {
+  width: 120px;
+  color: var(--gold);
+  font-size: 0.72rem;
+  letter-spacing: 0.15em;
+  vertical-align: top;
+  padding-top: 1.4rem;
+}
+
+.info-table td:last-child { color: var(--mid); }
+
+/* ─── FOOTER ─── */
+footer {
+  background: var(--ink);
+  padding: 2rem;
+  text-align: center;
+}
+
+.footer-logo {
+  font-family: 'Shippori Mincho', serif;
+  font-size: 1rem;
+  letter-spacing: 0.2em;
+  color: var(--warm);
+  margin-bottom: 0.5rem;
+}
+
+.footer-copy {
+  font-size: 0.68rem;
+  letter-spacing: 0.1em;
+  color: rgba(247,242,236,0.3);
+}
+
+/* ─── ANIMATIONS ─── */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ─── MOBILE ─── */
+@media (max-width: 680px) {
+  nav { padding: 1.25rem 1.25rem; }
+  .nav-links { display: none; }
+  .hero-content { padding: 2rem 1.25rem; }
+  .hero-footer { padding: 1.25rem; gap: 1.5rem; }
+  section { padding: 3.5rem 1.25rem; }
+  .about-inner { grid-template-columns: 1fr; gap: 2rem; }
+  .services-header { flex-direction: column; align-items: flex-start; gap: 1rem; }
+  .cta-contacts { gap: 1.5rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- ─── HERO ─── -->
+<div class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-lines"></div>
+
+  <nav>
+    <div class="logo">
+      福祉.cut
+      <span>福祉理美容専門</span>
+    </div>
+    <ul class="nav-links">
+      <li><a href="#" onclick="document.querySelector('#services').scrollIntoView({behavior:'smooth'});return false;">料金</a></li>
+      <li><a href="#" onclick="document.querySelector('#flow').scrollIntoView({behavior:'smooth'});return false;">ご利用の流れ</a></li>
+      <li><a href="#" onclick="document.querySelector('#info').scrollIntoView({behavior:'smooth'});return false;">店舗情報</a></li>
+      <li><a href="https://forms.gle/W22KF2BFJjWweKcF9" target="_blank" class="nav-btn">予約する</a></li>
+    </ul>
+  </nav>
+
+  <div class="hero-content">
+    <p class="hero-label">福祉理美容専門　福祉.cut</p>
+    <h1>ご自宅に、<br><em>美容室を</em><br>お届けします。</h1>
+    <p class="hero-desc">
+      外出が難しくなっても、髪を整える喜びは変わりません。<br>
+      ご自宅・施設・病院へ直接伺い、<br>
+      一人ひとりに寄り添った施術をお届けします。
+    </p>
+    <div class="hero-actions">
+      <a href="#" onclick="document.querySelector('#cta').scrollIntoView({behavior:'smooth'});return false;" class="btn-primary">ご予約はこちら</a>
+      <a href="#" onclick="document.querySelector('#services').scrollIntoView({behavior:'smooth'});return false;" class="btn-secondary">料金を見る</a>
+    </div>
+  </div>
+
+  <div class="hero-footer">
+    <div class="hero-stat">
+      <strong>ベッド上</strong>での施術可能
+    </div>
+    <div class="hero-stat">
+      <strong>認知症</strong>の方も歓迎
+    </div>
+    <div class="hero-stat">
+      <strong>他で断られた</strong>方もご相談を
+    </div>
+  </div>
+</div>
+
+<!-- ─── ABOUT ─── -->
+<section class="about fade-in">
+  <div class="about-inner">
+    <div>
+      <p class="section-label">About</p>
+      <h2 class="section-title">安心・安全な<br>美容サービスを</h2>
+      <p class="about-text">
+        介護士の資格と実務経験を持つ美容師が、ご自宅に伺います。
+        身体の状態や当日の体調に合わせて施術方法を柔軟に調整。
+        ベッド上でのカット・シャンプーはもちろん、認知症の方や
+        動いてしまう方の施術にも丁寧に対応いたします。<br><br>
+        これまで他の事業所に断られてしまった方も、まずはお気軽にご相談ください。
+      </p>
+    </div>
+    <div class="about-quote">
+      <p>
+        髪が整うと、<br>
+        気持ちも整う。<br>
+        その瞬間を、<br>
+        ご自宅でお届けしたい。
+      </p>
+      <cite>— 福祉理美容師　小島　遥</cite>
+    </div>
+  </div>
+</section>
+
+<!-- ─── SERVICES ─── -->
+<section id="services">
+  <div class="services fade-in">
+    <div class="services-header">
+      <div>
+        <p class="section-label">Menu & Price</p>
+        <h2 class="section-title">メニュー・料金</h2>
+      </div>
+      <div class="services-note">
+        別途出張費 ¥3,000 がかかります
+      </div>
+    </div>
+
+    <div class="menu-grid">
+      <div class="menu-item">
+        <div class="menu-item-top">
+          <span class="menu-name">カット</span>
+          <span class="menu-price">¥5,000</span>
+        </div>
+        <p class="menu-detail">シャンプー ¥3,000（別途）</p>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-top">
+          <span class="menu-name">ベッドカット</span>
+          <span class="menu-price">¥7,000</span>
+        </div>
+        <p class="menu-detail">シャンプー ¥3,000（別途）</p>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-top">
+          <span class="menu-name">トリートメントカラー</span>
+          <span class="menu-price">¥9,000</span>
+        </div>
+        <p class="menu-detail">シャンプー込み</p>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-top">
+          <span class="menu-name">トリートメントパーマ</span>
+          <span class="menu-price">¥10,000</span>
+        </div>
+        <p class="menu-detail">シャンプー込み</p>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-top">
+          <span class="menu-name">お顔そり</span>
+          <span class="menu-price">¥700</span>
+        </div>
+        <p class="menu-detail">電気シェーバー使用</p>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-top">
+          <span class="menu-name">ヘッドスパ</span>
+          <span class="menu-price">¥5,000</span>
+        </div>
+        <p class="menu-detail">シャンプー代込み</p>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-top">
+          <span class="menu-name">出張費</span>
+          <span class="menu-price">¥3,000</span>
+        </div>
+        <p class="menu-detail">全メニュー共通・別途</p>
+      </div>
+    </div>
+
+    <p class="menu-note">
+      ※ 料金はすべて出張費別途（¥3,000）です。<br>
+      ※ 初回は必ず同伴者の方をお願いしております。<br>
+      ※ シャンプーの際、お風呂場や洗面台をお借りします。お借りできない場合は機材搬入代＋¥2,000。<br>
+      ※ 当日の体調によりメニュー変更・キャンセルも可能です。キャンセル料はいただきません。<br>
+      ※ 駐車場をお借りできると大変助かります。<br>
+      ※ 約2畳のスペースとお客様が座り慣れている椅子をお借りします。
+    </p>
+  </div>
+</section>
+
+<!-- ─── FLOW ─── -->
+<section id="flow" class="flow">
+  <div class="flow-inner fade-in">
+    <p class="section-label">How to Use</p>
+    <h2 class="section-title">ご利用の流れ</h2>
+
+    <div class="flow-steps">
+      <div class="flow-step">
+        <span class="step-num">01</span>
+        <div>
+          <p class="step-title">ご予約・お問い合わせ</p>
+          <p class="step-desc">予約フォーム・お電話・LINE・InstagramのDMからご連絡ください。ご希望の日時・訪問先・施術内容をお伝えください。</p>
+        </div>
+      </div>
+      <div class="flow-step">
+        <span class="step-num">02</span>
+        <div>
+          <p class="step-title">日時の確定</p>
+          <p class="step-desc">2営業日以内にご連絡し、日時を確定いたします。初回はお体の状態や注意事項をお聞かせください。</p>
+        </div>
+      </div>
+      <div class="flow-step">
+        <span class="step-num">03</span>
+        <div>
+          <p class="step-title">ご訪問・施術</p>
+          <p class="step-desc">約2畳ほどのスペースをお借りして施術を行います。ベッド上での施術も対応可能です。施術時間はメニューにより異なります。</p>
+        </div>
+      </div>
+      <div class="flow-step">
+        <span class="step-num">04</span>
+        <div>
+          <p class="step-title">お会計</p>
+          <p class="step-desc">施術後にその場でお会計をいただきます。キャンセル料はいただきませんので、当日の体調に合わせてご相談ください。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── REASONS ─── -->
+<section>
+  <div class="reasons fade-in">
+    <p class="section-label">Why Choose Us</p>
+    <h2 class="section-title">選ばれる理由</h2>
+    <div class="reasons-grid">
+      <div class="reason-card">
+        <span class="reason-num">01</span>
+        <p class="reason-title">介護士×美容師</p>
+        <p class="reason-desc">介護の資格と実務経験を持つ美容師が担当。体の状態に配慮した安全な施術を提供します。</p>
+      </div>
+      <div class="reason-card">
+        <span class="reason-num">02</span>
+        <p class="reason-title">断られた方も歓迎</p>
+        <p class="reason-desc">認知症、動いてしまう方、寝たきりの方など、他で断られた方もお気軽にご相談ください。</p>
+      </div>
+      <div class="reason-card">
+        <span class="reason-num">03</span>
+        <p class="reason-title">キャンセル料なし</p>
+        <p class="reason-desc">当日の体調によるメニュー変更・キャンセルも無料。お客様の体調を最優先にします。</p>
+      </div>
+      <div class="reason-card">
+        <span class="reason-num">04</span>
+        <p class="reason-title">どこでも施術可能</p>
+        <p class="reason-desc">約2畳のスペースがあれば施術可能。ベッド上・椅子上など、お体の状態に合わせて柔軟に対応します。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── CTA ─── -->
+<section id="cta" class="cta">
+  <div class="cta-inner fade-in">
+    <p class="section-label">Reservation</p>
+    <h2 class="section-title">まずはお気軽に<br>ご相談ください</h2>
+    <p class="cta-desc">
+      ご本人様はもちろん、ご家族・ケアマネの方からの<br>
+      お問い合わせも歓迎いたします。
+    </p>
+    <div class="cta-buttons">
+      <a href="https://forms.gle/W22KF2BFJjWweKcF9" target="_blank" class="btn-gold">予約フォームへ</a>
+      <a href="https://line.me/R/ti/p/@177kktqz" target="_blank" class="btn-outline-warm">LINEで相談</a>
+    </div>
+    <div class="cta-contacts">
+      <div class="cta-contact-item">
+        TEL
+        <a href="tel:07083048449">070-8304-8449</a>
+      </div>
+      <div class="cta-contact-item">
+        LINE
+        <a href="https://line.me/R/ti/p/@177kktqz" target="_blank">友だち追加</a>
+      </div>
+      <div class="cta-contact-item">
+        MAIL
+        <a href="mailto:fukushi.cut@gmail.com">fukushi.cut@gmail.com</a>
+      </div>
+      <div class="cta-contact-item">
+        Instagram
+        <a href="https://www.instagram.com/fukushi.cut?igsh=cXBieXBnc3U4cTJj" target="_blank">@fukushi.cut</a>
+      </div>
+      <div class="cta-contact-item">
+        営業時間
+        <a href="#">09:00 〜 19:00</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── INFO ─── -->
+<section id="info" class="info">
+  <div class="info-inner fade-in">
+    <p class="section-label">Store Info</p>
+    <h2 class="section-title">店舗情報</h2>
+    <table class="info-table">
+      <tr>
+        <td>店舗名</td>
+        <td>福祉理美容専門　福祉.cut</td>
+      </tr>
+      <tr>
+        <td>担当</td>
+        <td>福祉理美容師　小島　遥</td>
+      </tr>
+      <tr>
+        <td>営業時間</td>
+        <td>09:00 〜 19:00</td>
+      </tr>
+      <tr>
+        <td>定休日</td>
+        <td>不定休</td>
+      </tr>
+      <tr>
+        <td>対応エリア</td>
+        <td>神奈川県相模原市緑区周辺<br>（エリア外もご相談ください）</td>
+      </tr>
+      <tr>
+        <td>電話</td>
+        <td><a href="tel:07083048449" style="color:var(--gold);text-decoration:none;">070-8304-8449</a></td>
+      </tr>
+      <tr>
+        <td>LINE</td>
+        <td><a href="https://line.me/R/ti/p/@177kktqz" target="_blank" style="color:var(--gold);text-decoration:none;">友だち追加はこちら</a></td>
+      </tr>
+      <tr>
+        <td>Instagram</td>
+        <td><a href="https://www.instagram.com/fukushi.cut?igsh=cXBieXBnc3U4cTJj" target="_blank" style="color:var(--gold);text-decoration:none;">@fukushi.cut</a></td>
+      </tr>
+      <tr>
+        <td>メール</td>
+        <td><a href="mailto:fukushi.cut@gmail.com" style="color:var(--gold);text-decoration:none;">fukushi.cut@gmail.com</a></td>
+      </tr>
+      <tr>
+        <td>初回について</td>
+        <td>初回は必ず同伴者の方をお願いしております</td>
+      </tr>
+    </table>
+  </div>
+</section>
+
+<!-- ─── FOOTER ─── -->
+<footer>
+  <p class="footer-logo">福祉.cut</p>
+  <p class="footer-copy">© 2026 福祉理美容専門 福祉.cut. All rights reserved.</p>
+</footer>
+
+<script>
+  // Scroll fade-in
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+  // アンカーリンクを確実にジャンプさせる
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      e.preventDefault();
+      e.stopPropagation();
+      const id = this.getAttribute('href');
+      if (!id || id === '#') return;
+      const target = document.querySelector(id);
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+      return false;
+    });
+  });
+</script>
+
+</body>
+</html>
